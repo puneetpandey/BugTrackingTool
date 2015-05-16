@@ -5,7 +5,19 @@
     <%= devise_error_messages! %>
 
     <div class="field form-group">
-      <%= f.email_field :email, autofocus: true, class: "form-control input-lg", placeholder: "Email" %>
+      <%= f.email_field :first_name, autofocus: true, class: "form-control input-lg", placeholder: "First Name (for e.g. John)" %>
+    </div>
+
+    <div class="field form-group">
+      <%= f.email_field :last_name, autofocus: true, class: "form-control input-lg", placeholder: "Last Name (for e.g. Smith)" %>
+    </div>
+
+    <div class="field form-group">
+      <%= f.email_field :email, autofocus: true, class: "form-control input-lg", placeholder: "Email (e.g. someone@example.com)" %>
+    </div>
+
+    <div class="field form-group">
+      <%= f.email_field :username, autofocus: true, class: "form-control input-lg", placeholder: "Username (for e.g. john_smith)" %>
     </div>
 
     <div class="field form-group">

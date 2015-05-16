@@ -50,30 +50,42 @@
           <ul class="nav navbar-nav">
             <li><%= link_to "Our Team", "/path1"  %></li>
             <li><%= link_to "Setting-Up", "/path2"  %></li>
-            <li><%= link_to "Logout", "/path3"  %></li>
+            <li>
+              <% if user_signed_in? %>
+                <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+              <% else %>
+                <%= link_to "Log-In", new_user_session_path %>
+              <% end %>
+            </li>
           </ul>
         </div>
       </div>
     </div>
 
     <div class="container">
-      <div class="row">
+      <div class="row row-offcanvas row-offcanvas-left">
         <div class="col-lg-9">
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
-        <div class="col-lg-3">
-          <div class="well sidebar-nav">
-            <h3>Sidebar</h3>
-            <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Report a Bug", "/path1"  %></li>
-              <li><%= link_to "Reported Bugs", "/path2"  %></li>
-              <li><%= link_to "Charts", "/path3"  %></li>
+        <!-- sidebar -->
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#">Link 1</a></li>
+              <li><a href="#">Link 2</a></li>
+              <li><a href="#">Link 3</a></li>   
+              <li><a href="#" data-toggle="collapse" data-target="#sub1">Link 4 (submenu)</a>
+                <ul class="nav collapse" id="sub1">
+                  <li><a href="#">Sub Link 1</a></li>
+                  <li><a href="#">Sub Link 2</a></li>
+                  <li><a href="#">Sub Link 3</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Link 5</a></li>   
             </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
-      </div><!--/row-->
+        </div>
+      </div>
 
       <footer>
         <p>&copy; Company 2015</p>
