@@ -16,4 +16,8 @@ class User < ActiveRecord::Base
   has_one :user_profile, dependent: :destroy
   has_many :project_memberships
   has_many :projects, through: :project_memberships
+
+  has_many :responses, dependent: :destroy
+  has_many :awaiting_responses, -> { where(status: Response::STATUS[:completed]) },
+    class: "Response", foreign_key: :approver
 end
