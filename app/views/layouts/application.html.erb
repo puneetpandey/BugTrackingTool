@@ -48,13 +48,13 @@
         <a class="navbar-brand" href="#">BugTrackingTool</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Our Team", "/path1"  %></li>
+            <li><%= link_to "<i class='fa fa-info'></i>&nbsp; Our Team".html_safe, "/path1"  %></li>
             <li><%= link_to "Setting-Up", "/path2"  %></li>
             <li>
               <% if user_signed_in? %>
-                <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+                <%= link_to "<i class='fa fa-sign-out'></i>&nbsp; Logout".html_safe, destroy_user_session_path, method: :delete %>
               <% else %>
-                <%= link_to "Log-In", new_user_session_path %>
+                <%= link_to "<i class='fa fa-sign-in'></i>&nbsp; Sign-in".html_safe, new_user_session_path %>
               <% end %>
             </li>
           </ul>
@@ -71,11 +71,12 @@
         <!-- sidebar -->
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
           <div class="list-group">
-            <%= link_to "<i class='fa fa-home fa-fw'></i>&nbsp; My Dashboard".html_safe, dashboard_path, class: "list-group-item" %>
+            <%= link_to "<i class='fa fa-tachometer'></i>&nbsp; My Dashboard".html_safe, dashboard_path, class: "list-group-item" %>
             <%= link_to "<i class='fa fa-pencil fa-fw'></i>&nbsp; Report a Bug".html_safe, "javascript:void(0);", class: "list-group-item" %>
             <%= link_to "<i class='fa fa-folder'></i>&nbsp; Submitted Bugs".html_safe, "javascript:void(0);", class: "list-group-item" %>
             <%= link_to "<i class='fa fa-tasks'></i>&nbsp; Approved Bugs".html_safe, "javascript:void(0);", class: "list-group-item" %>
             <%= link_to "<i class='fa fa-cog fa-fw'></i>&nbsp; Manage Projects".html_safe, projects_path, class: "list-group-item" %>
+            <%= link_to "<i class='fa fa-user'></i>&nbsp; My Profile".html_safe, "javascript:void(0);", class: "list-group-item" %>
           </div>
           <ul class="nav">
             <li class="active"><%= link_to "<i class='fa fa-home fa-fw'></i>&nbsp;My Dashboard".html_safe, dashboard_path %></li>
