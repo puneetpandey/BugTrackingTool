@@ -1,2 +1,27 @@
-<h1>Projects#index</h1>
-<p>Find me in app/views/projects/index.html.erb</p>
+<h1>Listing Projects</h1>
+
+<table data-toggle="table" class="table">
+  <thead>
+    <tr>
+      <th data-field="s_id">S.No</th>
+      <th data-field="name">Name</th>
+      <th data-field="location">Location</th>
+      <th data-field="size">Team Size</th>
+      <th data-field="actions">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% s_no = 1 %>
+    <% @projects.each do | project | %>
+      <tr class="<%= cycle("table-striped", "") -%>">
+        <td data-field="s_id"><%= s_no %></td>
+        <td data-field="s_id"><%= project.name %></td>
+        <td data-field="s_id"><%= project.location.name %></td>
+        <td data-field="s_id"><%= project.team_size %></td>
+        <td data-field="s_id"><%= link_to "<i class='fa fa-camera-retro' aria-hidden='true'></i>".html_safe, project_path(project) %> | <%= link_to "Create Membership", new_project_project_membership_path(project) %></td>
+      </tr>
+      <% s_no += 1 %>
+    <% end %>
+  </tbody>
+</table>

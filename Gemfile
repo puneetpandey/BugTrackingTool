@@ -30,6 +30,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'unicorn'
 gem 'devise'
 gem 'twitter-bootstrap-rails'
+gem 'font-awesome-rails'
 gem 'role_model'
 gem 'cancancan'
 
