@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   end
 
   resources :projects do
-    resources :project_memberships
+    resources :project_memberships do
+      get :users_list, on: :collection
+    end
   end
   # Example resource route with sub-resources:
   #   resources :products do
