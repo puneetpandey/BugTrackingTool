@@ -1,0 +1,1 @@
+QUESTIONS = YAML.load_file("#{Rails.root.to_s}/config/predefined_set_of_questions.yml")[Rails.env]

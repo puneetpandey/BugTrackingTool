@@ -20,4 +20,20 @@ class User < ActiveRecord::Base
   has_many :responses, dependent: :destroy
   has_many :awaiting_responses, -> { where(status: Response::STATUS[:completed]) },
     class: "Response", foreign_key: :approver
+
+  def full_name
+    first_name + " " + last_name
+  end
+
+  def get_role_name
+    if self.has_role? :admin
+      "Admin"
+    elsif self.has_role? :manager
+      "Manager"
+    elsif self.has_role? :lead
+      "Team Lead"
+    else
+      "Guest"
+    end
+  end
 end

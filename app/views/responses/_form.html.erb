@@ -1,0 +1,46 @@
+<%= form_for([ current_user, @response ], html: { class: "form-horizontal" }) do | f | %>
+  <% if @response.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert alert-danger">
+        The form contains <%= pluralize(@response.errors.count, "error") %>
+      </div>
+      <ul>
+        <% @response.errors.full_messages.each do | msg | %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% question_keys = QUESTIONS.keys %>
+
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="email">Q.1: <%#= QUESTIONS['is_bug_exist'] %></label>
+    <div class="col-sm-10">
+      <%= f.text_field question_keys.first.to_sym, class: "form-control", placeholder: "#{QUESTIONS['is_bug_exist']}" %>
+    </div>
+  </div>
+  <% question_keys = question_keys - [ question_keys.first ] %>
+
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="email">Q.2: <%#= QUESTIONS['is_bug_exist'] %></label>
+    <div class="col-sm-10">
+      <%= f.text_field question_keys.first.to_sym, class: "form-control", placeholder: "#{QUESTIONS['bug_path']}" %>
+    </div>
+  </div>
+  <% question_keys = question_keys - [ question_keys.first ] %>
+
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="email">Q.3: <%#= QUESTIONS['is_bug_exist'] %></label>
+    <div class="col-sm-10">
+      <%= f.text_field question_keys.first.to_sym, class: "form-control", placeholder: "#{QUESTIONS['time_when_bug_occured']}" %>
+    </div>
+  </div>
+  <% question_keys = question_keys - [ question_keys.first ] %>
+
+  <div class="form-group"> 
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit "Submit", class: "btn btn-default" %>
+    </div>
+  </div>
+<% end %>

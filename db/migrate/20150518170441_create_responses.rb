@@ -2,7 +2,7 @@ class CreateResponses < ActiveRecord::Migration
   def change
     create_table :responses do |t|
       t.belongs_to      :user, null: false
-      t.belongs_to      :project_id, null: false
+      t.belongs_to      :project, null: false
       t.integer         :month
       t.integer         :year
       t.integer         :reference_key, unique: true, null: false

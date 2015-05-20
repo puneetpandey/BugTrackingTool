@@ -1,5 +1,20 @@
 defaults: &defaults
-    is_shared_service: "Similar kind of questions"
+    is_bug_exist: "Do you have Bug to report?"
+    bug_path: "Where is the bug path?"
+    time_when_bug_occured: "When did the Bug occured?"
+    bug_summary: "Summary about Bug"
+    bug_description: "Detailed description about Bug"
+    primary_reason: "What was the first reason behind it?"
+    secondary_reason: "Any Other reason/s?"
+    affected_stakeholders: "Who is most affected due to this Bug?"
+    bug_created_by: "Person responsible for Bug"
+    shift_timings: "Person due to which this bug was produced, what was his/her shift timings?"
+    tenure_of_employee_in_company: "How many month/year /s employee has spent in the company?"
+    technology_area: "Employee Skill set"
+    employee_current_role: "Current Designation of Employee"
+    bug_captured_by: "Who captured this Bug?"
+    comments: "Any Additional Comments"
+    impact_of_bug: "Impact"
 
 development:
     <<: *defaults
