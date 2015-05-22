@@ -15,32 +15,135 @@
   <% question_keys = QUESTIONS.keys %>
 
   <div class="form-group">
-    <label class="control-label col-sm-2" for="email">Q.1: <%#= QUESTIONS['is_bug_exist'] %></label>
+    <label class="control-label col-sm-2" for="email">Q.1:</label>
+    <div class="col-sm-10"><%= populate_date_options %></div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="email">Q.2:</label>
     <div class="col-sm-10">
-      <%= f.text_field question_keys.first.to_sym, class: "form-control", placeholder: "#{QUESTIONS['is_bug_exist']}" %>
+      <%= QUESTIONS['is_bug_exist'] %> <br />
+      <label class="radio-inline"><%= f.radio_button question_keys.first.to_sym, true, onclick: "$('div#next-questions').show();" %>Yes</label>
+      <label class="radio-inline"><%= f.radio_button question_keys.first.to_sym, false, onclick: "$('div#next-questions').hide();" %>No</label>
     </div>
   </div>
   <% question_keys = question_keys - [ question_keys.first ] %>
 
-  <div class="form-group">
-    <label class="control-label col-sm-2" for="email">Q.2: <%#= QUESTIONS['is_bug_exist'] %></label>
-    <div class="col-sm-10">
-      <%= f.text_field question_keys.first.to_sym, class: "form-control", placeholder: "#{QUESTIONS['bug_path']}" %>
+  <div id="next-questions">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Q.3:</label>
+      <div class="col-sm-10"><%= populate_path_options question_keys.first, QUESTIONS['bug_path'] %></div>
     </div>
-  </div>
-  <% question_keys = question_keys - [ question_keys.first ] %>
+    <% question_keys = question_keys - [ question_keys.first ] %>
 
-  <div class="form-group">
-    <label class="control-label col-sm-2" for="email">Q.3: <%#= QUESTIONS['is_bug_exist'] %></label>
-    <div class="col-sm-10">
-      <%= f.text_field question_keys.first.to_sym, class: "form-control", placeholder: "#{QUESTIONS['time_when_bug_occured']}" %>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Q.4:</label>
+      <div class="col-sm-10">
+        <%= f.text_field question_keys.first.to_sym, class: "form-control", placeholder: "#{QUESTIONS['time_when_bug_occured']}" %>
+      </div>
     </div>
+    <% question_keys = question_keys - [ question_keys.first ] %>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Q.5:</label>
+      <div class="col-sm-10">
+        <%= f.text_field question_keys.first.to_sym, class: "form-control", placeholder: "#{QUESTIONS['bug_summary']}" %>
+      </div>
+    </div>
+    <% question_keys = question_keys - [ question_keys.first ] %>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Q.6:</label>
+      <div class="col-sm-10">
+        <%= f.text_area question_keys.first.to_sym, class: "form-control", placeholder: "#{QUESTIONS['bug_description']}" %>
+      </div>
+    </div>
+    <% question_keys = question_keys - [ question_keys.first ] %>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Q.7:</label>
+      <div class="col-sm-10"><%= populate_primary_cause question_keys.first, QUESTIONS['primary_reason'] %></div>
+    </div>
+    <% question_keys = question_keys - [ question_keys.first ] %>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Q.8:</label>
+      <div class="col-sm-10"><%= populate_secondary_cause question_keys.first, QUESTIONS['secondary_reason'] %></div>
+    </div>
+    <% question_keys = question_keys - [ question_keys.first ] %>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Q.9:</label>
+      <div class="col-sm-10"><%= populate_affected_stakeholder question_keys.first, QUESTIONS['affected_stakeholders'] %></div>
+    </div>
+    <% question_keys = question_keys - [ question_keys.first ] %>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Q.10:</label>
+      <div class="col-sm-10">
+        <%= f.email_field question_keys.first.to_sym, class: "form-control", placeholder: "#{QUESTIONS['bug_created_by']}" %>
+      </div>
+    </div>
+    <% question_keys = question_keys - [ question_keys.first ] %>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Q.11:</label>
+      <div class="col-sm-10"><%= populate_shift_timings_options question_keys.first, QUESTIONS['shift_timings'] %></div>
+    </div>
+    <% question_keys = question_keys - [ question_keys.first ] %>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Q.12:</label>
+      <div class="col-sm-10"><%= populate_employee_tenure_options question_keys.first, QUESTIONS['tenure_of_employee_in_company'] %></div>
+    </div>
+    <% question_keys = question_keys - [ question_keys.first ] %>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Q.13:</label>
+      <div class="col-sm-10"><%= populate_technology_area question_keys.first, QUESTIONS['technology_area'] %></div>
+    </div>
+    <% question_keys = question_keys - [ question_keys.first ] %>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Q.14:</label>
+      <div class="col-sm-10">
+        <%= f.text_field question_keys.first.to_sym, class: "form-control", placeholder: "#{QUESTIONS['employee_current_role']}" %>
+      </div>
+    </div>
+    <% question_keys = question_keys - [ question_keys.first ] %>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Q.15:</label>
+      <div class="col-sm-10">
+        <%= f.email_field question_keys.first.to_sym, value: current_user.email, class: "form-control", placeholder: "#{QUESTIONS['bug_captured_by']}", readonly: true %>
+      </div>
+    </div>
+    <% question_keys = question_keys - [ question_keys.first ] %>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Q.16:</label>
+      <div class="col-sm-10">
+        <%= f.text_area question_keys.first.to_sym, class: "form-control", placeholder: "#{QUESTIONS['comments']}" %>
+      </div>
+    </div>
+    <% question_keys = question_keys - [ question_keys.first ] %>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Q.17:</label>
+      <div class="col-sm-10">
+        <%= f.text_field question_keys.first.to_sym, class: "form-control", placeholder: "#{QUESTIONS['impact_of_bug']}" %>
+      </div>
+    </div>
+    <% question_keys = question_keys - [ question_keys.first ] %>
   </div>
-  <% question_keys = question_keys - [ question_keys.first ] %>
 
   <div class="form-group"> 
     <div class="col-sm-offset-2 col-sm-10">
-      <%= f.submit "Submit", class: "btn btn-default" %>
+      <%= f.submit "Submit", class: "btn btn-primary btn-lg btn-block" %>
     </div>
   </div>
+<% end %>
+
+<%= content_for :page_javascript do %>
+  <%= render "shared/javascripts/responses" %>
 <% end %>

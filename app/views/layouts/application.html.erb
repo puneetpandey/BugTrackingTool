@@ -73,10 +73,11 @@
           <div class="list-group">
             <%= link_to "<i class='fa fa-tachometer'></i>&nbsp; My Dashboard".html_safe, dashboard_path, class: "list-group-item" %>
             <%= link_to "<i class='fa fa-pencil fa-fw'></i>&nbsp; Report a Bug".html_safe, current_user ? new_user_response_path( current_user ) : "javascript:void(0);", class: "list-group-item" %>
-            <%= link_to "<i class='fa fa-folder'></i>&nbsp; Submitted Bugs".html_safe, current_user ? user_responses_path( current_user, req_type: "submitted" ) : "javascript:void(0);", class: "list-group-item" %>
+            <%= link_to "<i class='fa fa-folder'></i>&nbsp; Submitted Bugs".html_safe, current_user ? user_responses_path( current_user, req_type: "completed" ) : "javascript:void(0);", class: "list-group-item" %>
             <%= link_to "<i class='fa fa-tasks'></i>&nbsp; Approved Bugs".html_safe, current_user ? user_responses_path( current_user, req_type: "approved" ) : "javascript:void(0);", class: "list-group-item" %>
             <%= link_to "<i class='fa fa-cog fa-fw'></i>&nbsp; Manage Projects".html_safe, projects_path, class: "list-group-item" %>
             <%= link_to "<i class='fa fa-user'></i>&nbsp; My Profile".html_safe, "javascript:void(0);", class: "list-group-item" %>
+            <%= link_to "<i class='fa fa-bar-chart'></i>&nbsp; Charts / Reports".html_safe, "javascript:void(0);", class: "list-group-item" %>
           </div>
         </div>
       </div>
