@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   get :dashboard, to: 'home#dashboard'
+  get :coming_soon, to: 'home#coming_soon'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

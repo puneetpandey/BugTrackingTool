@@ -8,7 +8,7 @@ class CreateResponses < ActiveRecord::Migration
       t.integer         :reference_key, unique: true, null: false
       t.integer         :status, null: false
       t.integer         :approval_owner
-      t.integer         :is_bug_exist
+      t.boolean         :is_bug_exist
       t.string          :bug_path
       t.datetime        :time_when_bug_occured
       t.string          :bug_summary
