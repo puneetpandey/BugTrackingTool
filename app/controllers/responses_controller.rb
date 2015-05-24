@@ -46,7 +46,7 @@ class ResponsesController < ApplicationController
 private
   def response_params
     params.require(:response).permit( 
-      :id, :month, :year, :is_bug_exist, :bug_path, :time_when_bug_occured, :bug_summary, :bug_description, :primary_reason, :secondary_reason, :affected_stakeholders,
+      :id, :month_year, :project_id, :is_bug_exist, :bug_path, :time_when_bug_occured, :bug_summary, :bug_description, :primary_reason, :secondary_reason, :affected_stakeholders,
       :bug_created_by, :shift_timings, :tenure_of_employee_in_company, :technology_area, :employee_current_role, :bug_captured_by, :comments, :impact_of_bug
     )
   end

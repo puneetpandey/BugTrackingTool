@@ -1,7 +1,8 @@
 class HomeController < ApplicationController
-  def index
+  def dashboard
   end
 
-  def dashboard
+  def coming_soon
+    render layout: 'coming_soon'
   end
 end

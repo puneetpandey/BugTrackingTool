@@ -38,7 +38,7 @@ module ResponsesHelper
 
   def populate_date_options
     months_arr = []
-    if (1..6).include?(Date.today.day)
+    if (1..15).include?(Date.today.day)
       year = Date::MONTHNAMES[Date.today.prev_month.month] == "December" ? Date.today.year - 1 : Date.today.year
       months_arr.push(Date::MONTHNAMES[Date.today.prev_month.month].to_s + "-" + year.to_s)
     end

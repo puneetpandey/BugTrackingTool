@@ -1,2 +1,30 @@
-<h1>Responses#index</h1>
-<p>Find me in app/views/responses/index.html.erb</p>
+<h3>Submitted Bugs</h3>
+
+<table data-toggle="table" class="table table-striped">
+  <thead>
+    <tr>
+      <th>S.No.</th>
+      <th>Reference Key</th>
+      <th>Project</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if @responses.size > 0 %>
+      <% s_no = 1 %>
+      <% @responses.each do | response | %>
+        <tr>
+          <td><%= s_no %></td>
+          <td><%= response.reference_key %></td>
+          <td><%= response.project.name %></td>
+          <td><%= response.get_status %></td>
+        </tr>
+      <% end %>
+    <% else %>
+      <tr>
+        <td colspan="4"><center>No "Submitted Bugs found"</center></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
